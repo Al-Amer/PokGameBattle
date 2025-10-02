@@ -1,0 +1,11 @@
+
+
+npm init -y
+npm i
+npm i typescript --save-dev
+npm install --save-dev @types/node
+npx tsc --init
+npm install --save-dev ts-node-dev
+npm install --save-dev typescript
+
+npm i mongodb
