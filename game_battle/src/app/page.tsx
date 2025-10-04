@@ -1,9 +1,28 @@
 import Image from "next/image";
+import pikachuIcon from "../../Icon/Pikachu.png";
 
+
+const centerIcon : string = "../../Icon/Pikachu.png"
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="font-sans grid bg-white">
+      <div>
+        <h1>Pokemon</h1>
+        <p>Tex about pokemon</p>
+      </div>
+      <div>
+        <div className=" bg-white">
+          <Image
+              src={pikachuIcon}
+              alt="Vercel logomark"
+              width={120}
+              height={40}
+            />
+        </div>
+        <p>text about pokemon and pokemon history </p>
+      </div>
+      
+      {/* <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -97,7 +116,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
