@@ -52,7 +52,7 @@ export default function Footer() {
                     <a href="#" className="hover:underline">Licensing</a>
                 </li>
                 <li className="mb-4">
-                    <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                    <a href="http://localhost:3000/about" className="hover:underline">Terms &amp; Conditions</a>
                 </li>
             </ul>
         </div>
