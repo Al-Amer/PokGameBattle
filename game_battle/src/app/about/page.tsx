@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 
 export default function About() {
-  const developersList:{
+  type Developer = {
     id :number;
     imge:string;
     name:string;
@@ -14,7 +14,10 @@ export default function About() {
     about_text:string;
     linkGithub:string;
     linklinked:string;
-  }[]= [{
+  }
+
+
+  const developersList: Developer[]= [{
     id :0,
     imge:iconAmer,
     name:"Amer",
