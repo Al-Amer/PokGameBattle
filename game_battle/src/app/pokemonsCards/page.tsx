@@ -1,20 +1,28 @@
-import React from 'react'
+'use client'
 
-const getPokemon = async() => {
-  const res = await fetch("https://pokeapi.co/api/v2");
-  if (!res.ok) throw new Error("Failed to fetch ");
-  const poke = await res.json();
-  console.log(poke);
-  return poke;
-}
+import React, { useState } from 'react'
 
-console.log(getPokemon);
+
+
+
 
 
 export default function PokemonsCards() {
-  return (
+const [selectedPokemon, setSelectedPokemon] = useState(null)
+
+const getPokemon = async () => {
+  const res = await fetch("https://pokeapi.co/api/v2");
+  if (!res.ok) {
+    console.error(`Error fetching Pokemon: ${res.statusText}`);
+    return 
+  }
+  const poke = await res.json();
+  setSelectedPokemon(poke);
+}
+
+console.log(getPokemon);  return (
     <div>
-      <h1>Pokemon</h1>
+      
 
     </div>
   )

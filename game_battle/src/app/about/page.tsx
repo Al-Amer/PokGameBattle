@@ -62,7 +62,7 @@ export default function About() {
                 href={developer.linkGithub}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
+                className="hover:text-black transition-colors"
               >
                 <FaGithub size={20} />
               </a>
