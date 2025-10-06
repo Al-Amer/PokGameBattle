@@ -11,7 +11,9 @@ export default function UserPage() {
     e.preventDefault();
     if (!username.trim()) return alert("Enter a username!");
     localStorage.setItem("username", username);
+    setTimeout(() => {
     router.push("/pokemonsCards"); // after login, go to fight page
+     }, 100);
   };
 
   return (

@@ -14,11 +14,25 @@ export default function Header() {
   const router = useRouter();
 
   // Get username from localStorage
-  useEffect(() => {
-    const storedUser = localStorage.getItem("username");
-    setUsername(storedUser);
-  }, []);
+  // useEffect(() => {
+  //   const storedUser = localStorage.getItem("username");
+  //   setUsername(storedUser);
+  // }, []);
+ useEffect(() => {
+    const loadUser = () => {
+      const storedUser = localStorage.getItem("username");
+      setUsername(storedUser);
+    };
 
+    loadUser();
+
+    // Listen for changes from other tabs or code
+    window.addEventListener("storage", loadUser);
+
+    return () => {
+      window.removeEventListener("storage", loadUser);
+    };
+  }, []);
   // Handle logout
   const handleLogout = () => {
     localStorage.removeItem("username");

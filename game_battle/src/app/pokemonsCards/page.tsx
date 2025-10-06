@@ -75,6 +75,7 @@ const getPokemon = async () => {
     else if (pokemon.power < random.power) result = "Computer wins! 💥";
 
     setWinner(result);
+    // Important 
         // Send result to API
     await fetch("/api/battle", {
       method: "POST",
@@ -86,6 +87,13 @@ const getPokemon = async () => {
         result,
       }),
     });
+  };
+  // buttom hidden or show 
+   const handlePlayAgain = () => {
+    setWinner(null);
+    setUserPokemon(null);
+    setComputerPokemon(null);
+    getPokemon(); // fetch new Pokémon list
   };
 
   return (
@@ -124,7 +132,17 @@ const getPokemon = async () => {
         </div>
       )}
 
-      {winner && <h2 className="text-2xl font-bold mt-8">{winner}</h2>}
+      {winner && (
+         <div className="flex flex-col items-center mt-8">      
+      <h2 className="text-2xl font-bold mt-8">{winner}</h2>
+      <button
+            onClick={handlePlayAgain}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          >
+            Play Again 🔁
+          </button>
+             </div>
+          )}
     </div>
   )
 }
