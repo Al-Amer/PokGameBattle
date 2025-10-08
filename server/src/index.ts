@@ -48,7 +48,7 @@ const handleRequest = async (req: any, res: any) => {
     try {
         if (req.url === "/") {
             res.writeHead(200, { "Content-Type": "text/plain" }); // Fixed: "text/plain"
-            res.end("server is running on port 3000");
+            res.end("server is running on port 3001");
         } else if (req.url === "/listing") {
             res.writeHead(200, { "Content-Type": "text/plain" }); // Fixed: "text/plain"
             res.end("Listing Download \n please Wait ... ");
@@ -73,7 +73,7 @@ const startServer = async () => {
     try {
         await initdb();
         const server = createServer(handleRequest);
-        server.listen(3000, () => {
+        server.listen(3001, () => {
             console.log("*** --> server on port 3000 Running <-- ***");
         });
     } catch (error) {
