@@ -1,6 +1,7 @@
-// import React from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import BackendStatus from './components/BackendStatus';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Battle from './pages/Battle';
@@ -29,6 +30,8 @@ function App() {
             <p>© 2024 PokGameBattle - Created with ❤️ for Pokémon fans</p>
           </div>
         </footer>
+        
+        <BackendStatus />
       </div>
     </Router>
   );

@@ -1,0 +1,18 @@
+
+> backend@1.0.0 dev
+> nodemon src/app.ts
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/app.ts`[39m
+◇ injected env (3) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+==================================================
+🚀 PokGameBattle Backend
+==================================================
+📡 Server running on: http://localhost:5001
+📝 Health check: http://localhost:5001/api/health
+🔗 Test endpoint: http://localhost:5001/api/test
+🏠 Root: http://localhost:5001/
+==================================================
