@@ -1,32 +1,36 @@
 #!/bin/bash
 
-# Colors for output
+# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+CYAN='\033[0;36m'
 NC='\033[0m'
 
 clear
 
-echo "========================================="
-echo "       🎮 PokGameBattle Manager"
-echo "========================================="
-echo ""
+echo -e "${CYAN}"
+echo "   ╔═══════════════════════════════════════╗"
+echo "   ║       🎮 PokGameBattle Manager        ║"
+echo "   ╚═══════════════════════════════════════╝"
+echo -e "${NC}"
+
 echo -e "${BLUE}Please select an option:${NC}"
 echo ""
 echo "1) 🚀 Start all servers"
 echo "2) 🛑 Stop all servers"
 echo "3) 📊 Check status"
 echo "4) 🌐 Open URLs in browser"
-echo "5) 📋 View logs (frontend)"
-echo "6) 📋 View logs (backend)"
+echo "5) 📋 View frontend logs"
+echo "6) 📋 View backend logs"
 echo "7) 📋 View all logs (combined)"
 echo "8) 🔄 Restart all servers"
-echo "9) 🧹 Clean install (delete node_modules and reinstall)"
+echo "9) 🧹 Clean install (delete node_modules)"
+echo "10) 🔧 Fix common issues"
 echo "0) ❌ Exit"
 echo ""
-read -p "Enter choice [0-9]: " choice
+read -p "Enter choice [0-10]: " choice
 
 case $choice in
     1)
@@ -57,9 +61,12 @@ case $choice in
         ;;
     9)
         echo -e "${YELLOW}Cleaning node_modules...${NC}"
-        cd ../frontend && rm -rf node_modules package-lock.json
+        cd frontend && rm -rf node_modules package-lock.json
         cd ../backend && rm -rf node_modules package-lock.json
         echo -e "${GREEN}Clean complete. Run start.sh to reinstall.${NC}"
+        ;;
+    10)
+        ./scripts/fix.sh
         ;;
     0)
         echo -e "${GREEN}Goodbye!${NC}"
@@ -67,5 +74,7 @@ case $choice in
         ;;
     *)
         echo -e "${RED}Invalid option${NC}"
+        sleep 2
+        ./scripts/pokmenu.sh
         ;;
 esac

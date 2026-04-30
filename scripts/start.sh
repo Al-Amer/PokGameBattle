@@ -33,8 +33,8 @@ kill_port() {
 
 # Kill existing processes
 echo -e "${BLUE}🔧 Cleaning up ports...${NC}"
-kill_port 5173  # Frontend
-kill_port 5001  # Backend (changed from 5000)
+kill_port 5173
+kill_port 5001
 
 # Start Backend
 echo -e "${BLUE}🚀 Starting Backend Server...${NC}"

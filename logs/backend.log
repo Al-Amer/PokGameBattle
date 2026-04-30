@@ -7,7 +7,7 @@
 [33m[nodemon] watching path(s): *.*[39m
 [33m[nodemon] watching extensions: ts,json[39m
 [32m[nodemon] starting `ts-node src/app.ts`[39m
-◇ injected env (3) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (4) from .env // tip: ⌘ enable debugging { debug: true }
 ==================================================
 🚀 PokGameBattle Backend
 ==================================================
@@ -16,3 +16,16 @@
 🔗 Test endpoint: http://localhost:5001/api/test
 🏠 Root: http://localhost:5001/
 ==================================================
+[2026-04-30T09:21:06.086Z] GET /api/health
+[2026-04-30T09:21:06.132Z] GET /
+[2026-04-30T09:21:06.340Z] GET /api/health
+[2026-04-30T09:21:06.341Z] GET /api/health
+[2026-04-30T09:21:06.453Z] GET /api/health
+[2026-04-30T09:21:06.454Z] GET /api/health
+[2026-04-30T09:21:09.112Z] GET /api/health
+[2026-04-30T09:21:09.113Z] GET /api/health
+[2026-04-30T09:21:11.366Z] GET /
+[2026-04-30T09:21:13.512Z] GET /api/health
+[2026-04-30T09:21:15.832Z] GET /api/health
+[2026-04-30T09:21:15.833Z] GET /api/health
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
