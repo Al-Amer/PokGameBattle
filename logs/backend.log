@@ -7,25 +7,20 @@
 [33m[nodemon] watching path(s): *.*[39m
 [33m[nodemon] watching extensions: ts,json[39m
 [32m[nodemon] starting `ts-node src/app.ts`[39m
-◇ injected env (4) from .env // tip: ⌘ enable debugging { debug: true }
-==================================================
-🚀 PokGameBattle Backend
-==================================================
-📡 Server running on: http://localhost:5001
-📝 Health check: http://localhost:5001/api/health
-🔗 Test endpoint: http://localhost:5001/api/test
-🏠 Root: http://localhost:5001/
-==================================================
-[2026-04-30T09:21:06.086Z] GET /api/health
-[2026-04-30T09:21:06.132Z] GET /
-[2026-04-30T09:21:06.340Z] GET /api/health
-[2026-04-30T09:21:06.341Z] GET /api/health
-[2026-04-30T09:21:06.453Z] GET /api/health
-[2026-04-30T09:21:06.454Z] GET /api/health
-[2026-04-30T09:21:09.112Z] GET /api/health
-[2026-04-30T09:21:09.113Z] GET /api/health
-[2026-04-30T09:21:11.366Z] GET /
-[2026-04-30T09:21:13.512Z] GET /api/health
-[2026-04-30T09:21:15.832Z] GET /api/health
-[2026-04-30T09:21:15.833Z] GET /api/health
+✅ PostgreSQL connected successfully
+✅ Database tables created/updated
+
+🚀 Server running on http://localhost:5001
+📝 Health: http://localhost:5001/api/health
+🎮 Pokémon API: http://localhost:5001/api/pokemon
+💾 Database: Connected ✅
+
+[2026-04-30T15:05:17.726Z] GET /api/health
+[2026-04-30T15:05:18.118Z] GET /api/health
+[2026-04-30T15:05:18.119Z] GET /api/health
+[2026-04-30T15:05:19.947Z] GET /api/health
+[2026-04-30T15:05:19.948Z] GET /api/health
+[2026-04-30T15:05:49.953Z] GET /api/health
+[2026-04-30T15:06:30.772Z] GET /api/health
+[2026-04-30T15:07:00.773Z] GET /api/health
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
