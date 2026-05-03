@@ -15,71 +15,76 @@
 🎮 Pokémon API: http://localhost:5001/api/pokemon
 💾 Database: Connected ✅
 
-[2026-05-01T10:12:04.530Z] GET /api/health
-[2026-05-01T10:12:04.532Z] GET /api/health
-[2026-05-01T10:12:05.143Z] GET /api/health
-[2026-05-01T10:12:10.068Z] GET /api/pokemon
+[2026-05-03T14:13:25.415Z] GET /api/pokemon/random
+Fetching Pokémon: 31
+[2026-05-03T14:13:25.420Z] GET /api/pokemon
 Fetching 50 Pokémon from offset 0
-[2026-05-01T10:12:10.080Z] GET /api/pokemon/random
-Fetching Pokémon: 49
-[2026-05-01T10:12:10.082Z] GET /api/pokemon
+[2026-05-03T14:13:25.421Z] GET /api/health
+[2026-05-03T14:13:25.421Z] GET /api/pokemon
 Fetching 50 Pokémon from offset 0
-[2026-05-01T10:12:10.083Z] GET /api/pokemon/random
-Fetching Pokémon: 117
-[2026-05-01T10:12:12.185Z] GET /api/pokemon/ivysaur
-Fetching Pokémon: ivysaur
-[2026-05-01T10:12:22.984Z] GET /api/pokemon/random
+[2026-05-03T14:13:25.422Z] GET /api/pokemon/random
+Fetching Pokémon: 60
+[2026-05-03T14:13:25.423Z] GET /api/health
+[2026-05-03T14:13:37.052Z] GET /api/health
+[2026-05-03T14:13:37.053Z] GET /api/health
+[2026-05-03T14:13:55.519Z] GET /api/health
+[2026-05-03T14:14:07.057Z] GET /api/health
+[2026-05-03T14:14:24.201Z] GET /api/pokemon/random
+Fetching Pokémon: 52
+[2026-05-03T14:14:24.207Z] GET /api/pokemon
+Fetching 50 Pokémon from offset 0
+[2026-05-03T14:14:24.209Z] GET /api/pokemon
+Fetching 50 Pokémon from offset 0
+[2026-05-03T14:14:24.210Z] GET /api/pokemon/random
+Fetching Pokémon: 133
+[2026-05-03T14:14:25.614Z] GET /api/health
+[2026-05-03T14:14:26.210Z] GET /api/pokemon/wartortle
+Fetching Pokémon: wartortle
+[2026-05-03T14:14:37.057Z] GET /api/health
+[2026-05-03T14:14:38.335Z] GET /api/pokemon
+Fetching 50 Pokémon from offset 0
+[2026-05-03T14:14:38.338Z] GET /api/pokemon/random
+Fetching Pokémon: 118
+[2026-05-03T14:14:38.340Z] GET /api/health
+[2026-05-03T14:14:38.341Z] GET /api/pokemon
+Fetching 50 Pokémon from offset 0
+[2026-05-03T14:14:38.343Z] GET /api/pokemon/random
+Fetching Pokémon: 1
+[2026-05-03T14:14:38.344Z] GET /api/health
+[2026-05-03T14:14:40.574Z] GET /api/pokemon/pidgeot
+Fetching Pokémon: pidgeot
+[2026-05-03T14:14:49.987Z] GET /api/pokemon
+Fetching 150 Pokémon from offset 0
+[2026-05-03T14:14:49.990Z] GET /api/pokemon
+Fetching 150 Pokémon from offset 0
+[2026-05-03T14:14:50.820Z] GET /api/pokemon/charmander
+Fetching Pokémon: charmander
+[2026-05-03T14:14:55.717Z] GET /api/health
+[2026-05-03T14:14:59.244Z] GET /api/pokemon/random
+Fetching Pokémon: 87
+[2026-05-03T14:14:59.248Z] GET /api/pokemon
+Fetching 50 Pokémon from offset 0
+[2026-05-03T14:14:59.251Z] GET /api/pokemon
+Fetching 50 Pokémon from offset 0
+[2026-05-03T14:14:59.257Z] GET /api/pokemon/random
 Fetching Pokémon: 41
-[2026-05-01T10:12:22.989Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-01T10:12:22.992Z] GET /api/pokemon/random
-Fetching Pokémon: 49
-[2026-05-01T10:12:22.997Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-01T10:12:34.536Z] GET /api/health
-[2026-05-01T10:12:51.386Z] GET /api/pokemon/venonat
-Fetching Pokémon: venonat
-[2026-05-01T10:13:04.535Z] GET /api/health
-[2026-05-01T10:13:07.008Z] GET /api/pokemon/random
-Fetching Pokémon: 57
-[2026-05-01T10:13:07.011Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-01T10:13:07.015Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-01T10:13:07.018Z] GET /api/pokemon/random
-Fetching Pokémon: 11
-[2026-05-01T10:13:24.502Z] GET /api/pokemon/ninetales
-Fetching Pokémon: ninetales
-[2026-05-01T10:13:29.625Z] GET /api/pokemon/random
-Fetching Pokémon: 37
-[2026-05-01T10:13:29.628Z] GET /api/pokemon/random
-Fetching Pokémon: 17
-[2026-05-01T10:13:29.630Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-01T10:13:29.633Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-01T10:13:33.435Z] GET /api/pokemon/blastoise
-Fetching Pokémon: blastoise
-[2026-05-01T10:13:34.532Z] GET /api/health
-[2026-05-01T10:13:58.376Z] GET /api/pokemon
+[2026-05-03T14:15:01.523Z] GET /api/pokemon
 Fetching 150 Pokémon from offset 0
-[2026-05-01T10:13:58.379Z] GET /api/pokemon
+[2026-05-03T14:15:01.525Z] GET /api/pokemon
 Fetching 150 Pokémon from offset 0
-[2026-05-01T10:14:04.533Z] GET /api/health
-[2026-05-01T10:14:34.534Z] GET /api/health
-[2026-05-01T10:14:36.006Z] GET /api/pokemon
-Fetching 150 Pokémon from offset 0
-[2026-05-01T10:14:36.010Z] GET /api/pokemon
-Fetching 150 Pokémon from offset 0
-[2026-05-01T10:14:37.805Z] GET /api/pokemon/random
-Fetching Pokémon: 122
-[2026-05-01T10:14:37.808Z] GET /api/pokemon
+[2026-05-03T14:15:09.813Z] GET /api/health
+[2026-05-03T14:15:25.817Z] GET /api/health
+[2026-05-03T14:15:39.818Z] GET /api/pokemon/random
+Fetching Pokémon: 107
+[2026-05-03T14:15:39.821Z] GET /api/pokemon
 Fetching 50 Pokémon from offset 0
-[2026-05-01T10:14:37.810Z] GET /api/pokemon
+[2026-05-03T14:15:39.823Z] GET /api/pokemon
 Fetching 50 Pokémon from offset 0
-[2026-05-01T10:14:37.812Z] GET /api/pokemon/random
-Fetching Pokémon: 127
-[2026-05-01T10:14:46.003Z] GET /api/health
-[2026-05-01T10:14:46.869Z] GET /api/health
-[2026-05-01T10:15:04.578Z] GET /api/health
+[2026-05-03T14:15:39.824Z] GET /api/pokemon/random
+Fetching Pokémon: 147
+[2026-05-03T14:15:39.826Z] GET /api/health
+[2026-05-03T14:15:40.839Z] GET /api/pokemon/venusaur
+Fetching Pokémon: venusaur
+[2026-05-03T14:15:55.916Z] GET /api/health
+[2026-05-03T14:16:09.817Z] GET /api/health
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m

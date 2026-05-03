@@ -23,3 +23,84 @@
     @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden;
   }
 }
+
+/* Custom Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; background-color: white; }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.animate-flash {
+  animation: flash 0.2s ease-in-out 3;
+}
+
+/* Glass morphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Neumorphism effects */
+.neumorph {
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+/* Battle log styling */
+.battle-log-entry {
+  animation: slideInLeft 0.3s ease-out;
+  padding: 8px;
+  margin: 4px 0;
+  border-left: 3px solid;
+}
+
+/* Type badges hover effect */
+.type-badge {
+  transition: all 0.3s ease;
+}
+
+.type-badge:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
