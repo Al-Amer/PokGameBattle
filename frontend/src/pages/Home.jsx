@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GiBattleGear, GiTrophy, GiSwordman } from 'react-icons/gi';
+import { GiBattleGear, GiTrophy } from 'react-icons/gi';
 import { FaHeartbeat } from 'react-icons/fa';
 import { SiPokemon } from 'react-icons/si';
 
@@ -30,7 +30,6 @@ const Home = () => {
 
   return (
     <div className="space-y-12">
-      {/* Hero Section */}
       <div className="text-center py-12 bg-gradient-to-r from-red-50 to-blue-50 rounded-2xl">
         <h1 className="text-5xl font-bold text-gray-800 mb-4">
           Welcome to <span className="text-red-600">PokGameBattle</span>
@@ -48,7 +47,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Features Section */}
       <div>
         <h2 className="text-3xl font-bold text-center mb-8">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -62,7 +60,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Call to Action */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-8 text-white text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to Battle?</h2>
         <p className="text-lg mb-6">Choose your Pokémon and start your journey to become a champion!</p>

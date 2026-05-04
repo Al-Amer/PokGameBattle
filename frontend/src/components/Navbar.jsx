@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { GiPikeman, GiBattleGear } from 'react-icons/gi';
-import { FaHome, FaInfoCircle, FaUser, FaSignInAlt, FaPizzaSlice } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { GiBattleGear } from 'react-icons/gi';
+import { FaHome, FaInfoCircle, FaSignInAlt, FaSignOutAlt, FaUserCircle, FaPizzaSlice } from 'react-icons/fa';
 import { MdOutlineSportsScore } from 'react-icons/md';
 import { SiPokemon } from 'react-icons/si';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const navLinks = [
     { path: '/', name: 'Home', icon: <FaHome className="mr-2" /> },
@@ -17,45 +19,59 @@ const Navbar = () => {
     { path: '/about-me', name: 'About Me', icon: <FaInfoCircle className="mr-2" /> },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <nav className="bg-gradient-to-r from-red-600 to-blue-600 shadow-lg">
+    <nav className="bg-gradient-to-r from-red-600 to-blue-600 shadow-lg fixed top-0 w-full z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 text-white text-2xl font-bold">
             <SiPokemon className="text-yellow-400 text-3xl" />
             <span className="hidden sm:inline">PokGameBattle</span>
             <span className="sm:hidden">PGB</span>
           </Link>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`flex items-center px-4 py-2 rounded-lg transition-all duration-200 ${
-                  isActive(link.path)
-                    ? 'bg-yellow-400 text-gray-900 font-semibold'
-                    : 'text-white hover:bg-yellow-500 hover:text-gray-900'
-                }`}
+                className="flex items-center px-4 py-2 rounded-lg text-white hover:bg-yellow-500 hover:text-gray-900 transition"
               >
                 {link.icon}
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/login"
-              className="flex items-center px-4 py-2 rounded-lg transition-all duration-200 bg-green-500 text-white hover:bg-green-600 ml-2"
-            >
-              <FaSignInAlt className="mr-2" />
-              Login
-            </Link>
+            
+            {user ? (
+              <div className="flex items-center space-x-2 ml-2">
+                <span className="text-white flex items-center">
+                  <FaUserCircle className="mr-1" />
+                  {user.username}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+                >
+                  <FaSignOutAlt className="mr-1" />
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center px-4 py-2 rounded-lg bg-green-500 text-white hover:bg-green-600 transition ml-2"
+              >
+                <FaSignInAlt className="mr-2" />
+                Login
+              </Link>
+            )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-white focus:outline-none"
@@ -70,7 +86,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4 space-y-2">
             {navLinks.map((link) => (
@@ -78,24 +93,36 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 ${
-                  isActive(link.path)
-                    ? 'bg-yellow-400 text-gray-900 font-semibold'
-                    : 'text-white hover:bg-yellow-500 hover:text-gray-900'
-                }`}
+                className="flex items-center px-4 py-3 rounded-lg text-white hover:bg-yellow-500 hover:text-gray-900 transition"
               >
                 {link.icon}
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/login"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center px-4 py-3 rounded-lg transition-all duration-200 bg-green-500 text-white hover:bg-green-600"
-            >
-              <FaSignInAlt className="mr-2" />
-              Login
-            </Link>
+            {user ? (
+              <>
+                <div className="px-4 py-3 text-white">
+                  <FaUserCircle className="inline mr-2" />
+                  {user.username}
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="w-full flex items-center justify-center px-4 py-3 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+                >
+                  <FaSignOutAlt className="mr-2" />
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center px-4 py-3 rounded-lg bg-green-500 text-white hover:bg-green-600 transition"
+              >
+                <FaSignInAlt className="mr-2" />
+                Login
+              </Link>
+            )}
           </div>
         )}
       </div>
