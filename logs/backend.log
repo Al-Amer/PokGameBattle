@@ -1,32 +1,41 @@
 
 > pokgamebattle-backend@1.0.0 dev
-> nodemon src/app.ts
+> nodemon app.js
 
 [33m[nodemon] 3.1.14[39m
 [33m[nodemon] to restart at any time, enter `rs`[39m
 [33m[nodemon] watching path(s): *.*[39m
-[33m[nodemon] watching extensions: ts,json[39m
-[32m[nodemon] starting `ts-node src/app.ts`[39m
-✅ PostgreSQL connected successfully
-✅ Database tables created/updated
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node app.js`[39m
 
 🚀 Server running on http://localhost:5001
-📝 Health: http://localhost:5001/api/health
-🎮 Pokémon API: http://localhost:5001/api/pokemon
-💾 Database: Connected ✅
-
-[2026-05-04T02:18:15.875Z] GET /api/health
-[2026-05-04T02:18:15.876Z] GET /api/health
-[2026-05-04T02:18:18.189Z] GET /api/health
-[2026-05-04T02:18:18.189Z] GET /api/health
-[2026-05-04T02:18:27.792Z] GET /api/pokemon/random
-Fetching Pokémon: 141
-[2026-05-04T02:18:27.803Z] GET /api/pokemon/random
-Fetching Pokémon: 138
-[2026-05-04T02:18:27.806Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-04T02:18:27.811Z] GET /api/pokemon
-Fetching 50 Pokémon from offset 0
-[2026-05-04T02:18:30.033Z] GET /api/pokemon/raichu
-Fetching Pokémon: raichu
+🎲 Random Pokémon: http://localhost:5001/api/pokemon/random
+[2026-05-04T20:45:54.847Z] GET /api/health
+[2026-05-04T20:45:54.849Z] GET /api/health
+[2026-05-04T20:46:06.461Z] GET /api/health
+[2026-05-04T20:46:06.462Z] GET /api/health
+[2026-05-04T20:46:10.660Z] GET /api/pokemon/random
+[2026-05-04T20:46:10.684Z] GET /api/pokemon
+[2026-05-04T20:46:11.382Z] GET /api/pokemon/random
+[2026-05-04T20:46:12.277Z] GET /api/pokemon
+[2026-05-04T20:46:13.367Z] GET /api/pokemon/venusaur
+[2026-05-04T20:46:29.859Z] GET /api/pokemon
+[2026-05-04T20:46:30.788Z] GET /api/pokemon
+[2026-05-04T20:46:31.735Z] GET /api/pokemon/venusaur
+[2026-05-04T20:46:36.465Z] GET /api/pokemon/butterfree
+[2026-05-04T20:46:36.468Z] GET /api/health
+[2026-05-04T20:46:38.749Z] GET /api/pokemon/93
+[2026-05-04T20:46:42.706Z] GET /api/pokemon
+[2026-05-04T20:46:42.709Z] GET /api/pokemon/random
+[2026-05-04T20:46:42.877Z] GET /api/pokemon
+[2026-05-04T20:46:43.154Z] GET /api/pokemon/random
+[2026-05-04T20:46:44.332Z] GET /api/pokemon/charizard
+[2026-05-04T20:47:06.466Z] GET /api/health
+[2026-05-04T20:47:36.466Z] GET /api/health
+[2026-05-04T20:48:06.465Z] GET /api/health
+[2026-05-04T20:48:36.467Z] GET /api/health
+[2026-05-04T20:49:06.466Z] GET /api/health
+[2026-05-04T20:49:36.466Z] GET /api/health
+[2026-05-04T20:50:06.467Z] GET /api/health
+[2026-05-04T20:50:36.466Z] GET /api/health
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m

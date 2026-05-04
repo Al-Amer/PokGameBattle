@@ -14,17 +14,15 @@ const BackendStatus = () => {
         
         if (response.ok) {
           setStatus('connected');
-          setDbStatus(data.database);
-          setMessage('Backend connected');
+          setDbStatus(data.database || 'connected');
+          setMessage(`Backend: ${data.port || '5001'}`);
         } else {
           setStatus('disconnected');
-          setDbStatus('error');
-          setMessage('Connection error');
+          setMessage('Backend error');
         }
       } catch (error) {
         setStatus('disconnected');
-        setDbStatus('unknown');
-        setMessage('Backend not available');
+        setMessage('Backend offline');
       }
     };
 
@@ -41,26 +39,13 @@ const BackendStatus = () => {
     }
   };
 
-  const getDbIcon = () => {
-    if (dbStatus === 'connected') return <FaCheckCircle className="text-green-300" />;
-    if (dbStatus === 'disconnected') return <FaExclamationTriangle className="text-red-300" />;
-    return <FaDatabase className="text-yellow-300" />;
-  };
-
   return (
-    <div className={`fixed bottom-4 right-4 ${getStatusColor()} text-white px-4 py-2 rounded-lg shadow-lg z-50`}>
-      <div className="flex items-center space-x-3">
+    <div className={`fixed bottom-4 right-4 ${getStatusColor()} text-white px-4 py-2 rounded-lg shadow-lg z-50 text-sm`}>
+      <div className="flex items-center space-x-2">
         <FaServer className="text-sm" />
-        <span className="text-sm font-medium">{message}</span>
-        {status === 'connected' && (
-          <>
-            <div className="w-px h-4 bg-white/30"></div>
-            <div className="flex items-center space-x-1">
-              {getDbIcon()}
-              <span className="text-xs">DB: {dbStatus}</span>
-            </div>
-          </>
-        )}
+        <span>{message}</span>
+        {status === 'connected' && <FaCheckCircle className="text-white" />}
+        {status === 'disconnected' && <FaExclamationTriangle className="text-white" />}
         <div className={`w-2 h-2 rounded-full animate-pulse ${status === 'connected' ? 'bg-white' : 'bg-gray-200'}`}></div>
       </div>
     </div>
