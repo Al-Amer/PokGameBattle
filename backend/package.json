@@ -5,12 +5,13 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "node dist/app.js || node render-start.js",
     "dev": "nodemon src/app.ts",
     "clean": "rm -rf dist"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "20.18.0",
+    "npm": ">=9.0.0"
   },
   "dependencies": {
     "express": "^4.18.2",
