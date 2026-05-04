@@ -10,19 +10,37 @@ dotenv.config();
 const app: Application = express();
 const PORT = process.env.PORT || 5001;
 
-// Middleware
+// Dynamic CORS for production
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.FRONTEND_URL,
+  'https://pokgamebattle.netlify.app',
+  'https://pokgamebattle.vercel.app'
+].filter(Boolean);
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Logging middleware
-app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
-  next();
-});
+// Logging middleware (only in development)
+if (process.env.NODE_ENV !== 'production') {
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+    next();
+  });
+}
 
 // Health check endpoint
 app.get('/api/health', async (req: Request, res: Response) => {
@@ -39,7 +57,8 @@ app.get('/api/health', async (req: Request, res: Response) => {
     server: 'running',
     database: dbStatus,
     port: PORT,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV
   });
 });
 
@@ -49,8 +68,8 @@ app.get('/api/test', (req: Request, res: Response) => {
     success: true, 
     message: 'Backend is working!',
     data: {
-      frontend: 'http://localhost:5173',
-      backend: `http://localhost:${PORT}`
+      frontend: process.env.FRONTEND_URL || 'http://localhost:5173',
+      backend: `https://${process.env.RENDER_EXTERNAL_HOSTNAME || 'localhost'}`
     }
   });
 });
@@ -73,7 +92,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 const startServer = async () => {
   const dbConnected = await testDatabaseConnection();
   
-  if (dbConnected) {
+  if (dbConnected && process.env.NODE_ENV !== 'production') {
     await syncDatabase();
   }
   
