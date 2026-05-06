@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { FaDatabase, FaServer, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { FaServer, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
 const BackendStatus = () => {
   const [status, setStatus] = useState('checking');
-  const [dbStatus, setDbStatus] = useState('unknown');
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     const checkBackend = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/health');
+        const response = await fetch('https://pokgamebattle-backend.onrender.com/api/health');
         const data = await response.json();
         
         if (response.ok) {
           setStatus('connected');
-          setDbStatus(data.database || 'connected');
-          setMessage(`Backend: ${data.port || '5001'}`);
+          setMessage(`Live: ${data.port || '10000'}`);
         } else {
           setStatus('disconnected');
           setMessage('Backend error');

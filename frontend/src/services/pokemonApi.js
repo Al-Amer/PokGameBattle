@@ -1,7 +1,7 @@
-const API_URL = 'http://localhost:5001/api';
+// Use production URL from Render
+const API_URL = 'https://pokgamebattle-backend.onrender.com/api';
 
 export const pokemonApi = {
-  // Get list of Pokémon
   getPokemonList: async (limit = 20, offset = 0) => {
     try {
       const response = await fetch(`${API_URL}/pokemon?limit=${limit}&offset=${offset}`);
@@ -13,7 +13,6 @@ export const pokemonApi = {
     }
   },
 
-  // Get single Pokémon by name or ID
   getPokemon: async (nameOrId) => {
     try {
       const response = await fetch(`${API_URL}/pokemon/${nameOrId}`);
@@ -25,7 +24,6 @@ export const pokemonApi = {
     }
   },
 
-  // Get random Pokémon
   getRandomPokemon: async () => {
     try {
       const response = await fetch(`${API_URL}/pokemon/random`);
@@ -37,7 +35,6 @@ export const pokemonApi = {
     }
   },
 
-  // Search Pokémon
   searchPokemon: async (query) => {
     try {
       const response = await fetch(`${API_URL}/pokemon/search?q=${query}`);

@@ -118,59 +118,9 @@ Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
     at Server.setupListenHandle [as _listen2] (node:net:2008:16)
     at listenInCluster (node:net:2065:12)
     at node:net:2274:7
-    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
-Emitted 'error' event on Server instance at:
-    at emitErrorNT (node:net:2044:8)
-    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
-  code: 'EADDRINUSE',
-  errno: -48,
-  syscall: 'listen',
-  address: '0.0.0.0',
-  port: 5001
-}
-
-Node.js v24.15.0
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-itted 'error' event on Server instance at:
-    at emitErrorNT (node:net:2044:8)
-    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
-  code: 'EADDRINUSE',
-  errno: -48,
-  syscall: 'listen',
-  address: '0.0.0.0',
-  port: 5001
-}
-
-Node.js v24.15.0
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-in use 0.0.0.0:5001
-    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
-    at listenInCluster (node:net:2065:12)
-    at node:net:2274:7
-    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
-Emitted 'error' event on Server instance at:
-    at emitErrorNT (node:net:2044:8)
-    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
-  code: 'EADDRINUSE',
-  errno: -48,
-  syscall: 'listen',
-  address: '0.0.0.0',
-  port: 5001
-}
-
-Node.js v24.15.0
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-
-}
-
-Node.js v24.15.0
-[31m[nodemon] app crashed - waiting for file changes before starting...[39m
-:90:21)
-Emitted 'error' event on Server instance at:
-    at emitErrorNT (node:net:2044:8)
-    at process.processTicksAndRejections (node:internal/process/task_queue[32m[nodemon] restarting due to changes[32m[nodemon] restarting due to changes...[39m
-[3node:events:487
-      throw er; // Unhannode:events:487
+    at process.processTicksAndRejections (nod[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+node:events:487
       throw er; // Unhandled 'error' event
       ^
 
@@ -190,9 +140,27 @@ Emitted 'error' event on Server instance at:
 }
 
 Node.js v24.15.0
-[31m[nodemon] app crashed - waiting f[32m[nodemon] restarting due to changes[32m[nodemon] restarting due to changes...[39m
-[3node:events:487
-      throw er; // Unhannode:events:487
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+node:events:487
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at node:net:2274:7
+    at process.processTicksAndRejections (node:intnode:events:487
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at node:net:2274:7
+    at process.processTicksAndRejections (node:inter[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+  at emitErrorNT node:events:487
       throw er; // Unhandled 'error' event
       ^
 
@@ -203,8 +171,39 @@ Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 Emitted 'error' event on Server instance at:
     at emitErrorNT (node:net:2044:8)
-    at process.processTicksAndRejections (node:internanode:events:487
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 5001
+}
+
+Node.js v24.15.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+ changes before starting...[39m
+:487
       throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at node:net:2274:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:2044:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 5001
+}
+
+Node.js v24.15.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+     throw er; // Unhandled 'error' event
       ^
 
 Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
@@ -226,6 +225,37 @@ Emitted 'error' event on Server instance at:
       ^
 
 Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
+    at Server.setupListenHandle [as _listen2] (node[32m[nodemon] restarting due to changes[32m[nodemon] restarting due to changes...[39m
+[3node:events:487
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    atnode:events:487
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at node:net:2274:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:2044:8)
+    at process.processTicksAndRejections (node:internal/process/task_queue[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node app.js`[39m
+node:events:487
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    atnode:events:487
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
     at Server.setupListenHandle [as _listen2] (node:net:2008:16)
     at listenInCluster (node:net:2065:12)
     at node:net:2274:7
@@ -233,6 +263,22 @@ Error: listen EADDRINUSE: address already in use 0.0.0.0:5001
 Emitted 'error' event on Server instance at:
     at emitErrorNT (node:net:2044:8)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 5001
+}
+
+Node.js v24.15.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+0',
+  port: 5001
+}
+
+Node.js v24.15.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+ues:90:21) {
   code: 'EADDRINUSE',
   errno: -48,
   syscall: 'listen',
