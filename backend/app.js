@@ -6,17 +6,40 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// Middleware
+// CORS configuration - Allow all origins for now (for testing)
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://pokemonbattel.netlify.app',
+  'https://*.netlify.app',
+  'https://pokgamebattle.netlify.app'
+];
+
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'https://pokgamebattle.netlify.app',
-    'https://*.netlify.app',
-    'https://*.vercel.app'
-  ],
-  credentials: true
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin is allowed
+    if (allowedOrigins.some(allowed => origin.includes(allowed.replace('*', '')))) {
+      return callback(null, true);
+    }
+    
+    // For development, allow all origins
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+    
+    callback(new Error('CORS not allowed from this origin'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Handle preflight requests
+app.options('*', cors());
+
 app.use(express.json());
 
 // Logging middleware (only in development)
@@ -162,7 +185,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server - IMPORTANT: bind to 0.0.0.0 for Render
+// Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`\n🚀 PokGameBattle Backend`);
   console.log(`📡 Server running on port ${PORT}`);
