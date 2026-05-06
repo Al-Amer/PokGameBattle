@@ -1,5 +1,8 @@
-// IMPORTANT: Using your LIVE backend on Render
-const API_URL = 'https://pokgamebattle-backend.onrender.com/api';
+// Use CORS proxy to bypass CORS issues
+const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
+const BACKEND_URL = 'https://pokgamebattle-backend.onrender.com/api';
+
+const API_URL = `${PROXY_URL}${BACKEND_URL}`;
 
 export const pokemonApi = {
   getPokemonList: async (limit = 20, offset = 0) => {
@@ -12,39 +15,7 @@ export const pokemonApi = {
       return { success: false, error: error.message };
     }
   },
-
-  getPokemon: async (nameOrId) => {
-    try {
-      const response = await fetch(`${API_URL}/pokemon/${nameOrId}`);
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(`Error fetching Pokémon ${nameOrId}:`, error);
-      return { success: false, error: error.message };
-    }
-  },
-
-  getRandomPokemon: async () => {
-    try {
-      const response = await fetch(`${API_URL}/pokemon/random`);
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error fetching random Pokémon:', error);
-      return { success: false, error: error.message };
-    }
-  },
-
-  searchPokemon: async (query) => {
-    try {
-      const response = await fetch(`${API_URL}/pokemon/search?q=${query}`);
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error searching Pokémon:', error);
-      return { success: false, error: error.message };
-    }
-  }
+  // ... other methods
 };
 
 export default pokemonApi;
