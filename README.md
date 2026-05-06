@@ -2,6 +2,14 @@
 
 A full-stack Pokémon battle game built with React, Node.js, TypeScript, and PostgreSQL.
 
+ Live Project URLs:**
+
+- 🌐 **Frontend:** [https://pokemonbattel.netlify.app](https://pokemonbattel.netlify.app/)
+    
+- 🔧 **Backend API:** [https://pokgamebattle-backend.onrender.com](https://pokgamebattle-backend.onrender.com/)
+    
+- 📝 **Health Check:** [https://pokgamebattle-backend.onrender.com/api/health](https://pokgamebattle-backend.onrender.com/api/health)
+
 ## Features
 
 - 🎯 **Pokémon API Integration** - Real Pokémon data from PokeAPI
