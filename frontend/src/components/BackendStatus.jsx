@@ -8,12 +8,13 @@ const BackendStatus = () => {
   useEffect(() => {
     const checkBackend = async () => {
       try {
+        // Check your live backend
         const response = await fetch('https://pokgamebattle-backend.onrender.com/api/health');
         const data = await response.json();
         
         if (response.ok) {
           setStatus('connected');
-          setMessage(`Live: ${data.port || '10000'}`);
+          setMessage(`Backend: ${data.port || 'live'}`);
         } else {
           setStatus('disconnected');
           setMessage('Backend error');

@@ -1,4 +1,4 @@
-// Use production URL from Render
+// IMPORTANT: Using your LIVE backend on Render
 const API_URL = 'https://pokgamebattle-backend.onrender.com/api';
 
 export const pokemonApi = {
