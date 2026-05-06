@@ -6,49 +6,84 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// CORS configuration - Allow all origins for now (for testing)
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  'https://pokemonbattel.netlify.app',
-  'https://*.netlify.app',
-  'https://pokgamebattle.netlify.app'
-];
-
-app.use(cors({
-  origin: function(origin, callback) {
+// Comprehensive CORS configuration
+const corsOptions = {
+  origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl)
     if (!origin) return callback(null, true);
     
+    // List of allowed origins
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'https://pokemonbattel.netlify.app',
+      'https://pokemonbattel.netlify.app/',
+      'https://*.netlify.app',
+      'https://pokgamebattle.netlify.app',
+      'https://pokgamebattle-backend.onrender.com'
+    ];
+    
     // Check if origin is allowed
-    if (allowedOrigins.some(allowed => origin.includes(allowed.replace('*', '')))) {
-      return callback(null, true);
-    }
+    const isAllowed = allowedOrigins.some(allowed => {
+      if (allowed.includes('*')) {
+        const pattern = allowed.replace('*', '');
+        return origin.includes(pattern);
+      }
+      return origin === allowed;
+    });
     
-    // For development, allow all origins
-    if (process.env.NODE_ENV !== 'production') {
-      return callback(null, true);
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(new Error('CORS not allowed from this origin'));
     }
-    
-    callback(new Error('CORS not allowed from this origin'));
   },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH', 'HEAD'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+  exposedHeaders: ['Content-Length', 'X-Requested-With'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
 
-// Handle preflight requests
-app.options('*', cors());
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// Handle preflight requests explicitly
+app.options('*', cors(corsOptions));
+
+// Add headers to all responses (additional safety)
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://pokemonbattel.netlify.app',
+    'https://pokgamebattle.netlify.app'
+  ];
+  
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
+  // Handle preflight
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
 
 app.use(express.json());
 
-// Logging middleware (only in development)
-if (process.env.NODE_ENV !== 'production') {
-  app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
-    next();
-  });
-}
+// Simple logging
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+  next();
+});
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
@@ -190,5 +225,5 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`\n🚀 PokGameBattle Backend`);
   console.log(`📡 Server running on port ${PORT}`);
   console.log(`📝 Health: http://0.0.0.0:${PORT}/api/health`);
-  console.log(`🎲 Random Pokémon: http://0.0.0.0:${PORT}/api/pokemon/random`);
+  console.log(`🎮 Pokémon API: http://0.0.0.0:${PORT}/api/pokemon`);
 });
